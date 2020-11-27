@@ -1,0 +1,18 @@
+function DoCallTimer() { console.log(CallTimeLen);
+  CallTimeLen = parseInt(CallTimeLen)+1;
+  minute = parseInt(CallTimeLen/60);
+  second = CallTimeLen%60;
+  if(minute==0)
+  {
+   $("#seconds").html(second);
+  }
+  else
+  {
+   $("#seconds").html(second);
+   $("#minutes").html(minute);
+  }
+  //定时更新学习纪录
+  if (CallTimeLen>60 && (CallTimeLen%600)==0) {//每10分钟更新一次数据库
+   updateStudy();
+  }
+}
